@@ -5,27 +5,12 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Home(),
-    );
-  }
+  _MyAppState createState() => _MyAppState();
 }
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class _MyAppState extends State<MyApp> {
   CameraDeepArController cameraDeepArController;
   int currentPage = 0;
   final vp = PageController(viewportFraction: .24);
@@ -41,6 +26,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Stack(
           children: [
@@ -57,7 +43,7 @@ class _HomeState extends State<Home> {
                 androidLicenceKey:
                     '9e099bd5a5867a3e4679a4b9c757a248f5dc79a40064251c2fc03f7b2703e560278cdc30610b5311',
                 iosLicenceKey:
-                    '53618212114fc16bbd7499c0c04c2ca11a4eed188dc20ed62a7f7eec02b41cb34d638e72945a6bf6',
+                    'c3323d1f776efdeb6c4f88e86c087e4fa03b82605d5f83d6fd28b8ae0d35c9318cd3003734eca8d5',
                 cameraDeepArCallback: (c) async {
                   cameraDeepArController = c;
                   setState(() {});
